@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dilber Sah - Xcode Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="xcode-shell" aria-label="Dilber Sah interactive portfolio">
+      <header class="toolbar">
+        <div class="window-controls" aria-hidden="true">
+          <span class="dot close"></span>
+          <span class="dot minimize"></span>
+          <span class="dot zoom"></span>
+        </div>
+        <button class="run-button" id="runButton" type="button" aria-label="Run portfolio preview">
+          <span class="play-icon"></span>
+          <span>Run</span>
+        </button>
+        <div class="toolbar-title build-status" id="buildStatus" aria-live="polite">
+          <div class="status-copy">
+            <span class="scheme" id="statusText">DilberSah</span>
+            <span class="destination" id="statusDetail">iPhone 17 Pro</span>
+          </div>
+          <div class="build-progress" aria-hidden="true">
+            <span id="buildProgress"></span>
+          </div>
+        </div>
+        <div class="toolbar-actions">
+          <a class="toolbar-cv-button" href="/Dilber-Sah-CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download Dilber Sah CV">
+            <span class="download-icon" aria-hidden="true"></span>
+            <span>Download CV</span>
+          </a>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <aside class="navigator" aria-label="Project navigator">
+          <div class="navigator-head">
+            <span class="navigator-icon"></span>
+            <span>Project</span>
+          </div>
+          <nav class="tree">
+            <div class="tree-root">DilberSah/</div>
+            <button class="tree-folder" type="button" aria-expanded="true">Profile_Info/</button>
+            <div class="tree-group">
+              <button class="file active" type="button" data-file="about">AboutMe.swift</button>
+              <button class="file" type="button" data-file="experience">Experience.swift</button>
+              <button class="file" type="button" data-file="skills">Skills.swift</button>
+              <button class="file" type="button" data-file="projects">Projects.swift</button>
+              <button class="file" type="button" data-file="contact">Contact.swift</button>
+            </div>
+            <button class="tree-folder" type="button" aria-expanded="true">Featured_Projects/</button>
+            <div class="tree-group">
+              <button class="file app-file" type="button" data-file="pluggy">Pluggy.app</button>
+              <button class="file app-file" type="button" data-file="moodiary">Moodiary.app</button>
+              <button class="file app-file" type="button" data-file="artify">ArtifyAI.app</button>
+            </div>
+          </nav>
+        </aside>
+
+        <details class="editor" aria-label="Code editor" open>
+          <summary class="editor-summary">
+            <span>Code Editor</span>
+            <strong id="mobileActiveFile">AboutMe.swift</strong>
+          </summary>
+          <div class="tabs">
+            <div class="tab active" id="activeTab">AboutMe.swift</div>
+            <div class="crumbs">DilberSah > Profile_Info</div>
+          </div>
+          <div class="editor-body">
+            <ol class="line-numbers" id="lineNumbers" aria-hidden="true"></ol>
+            <pre class="code"><code id="codeBlock"></code></pre>
+          </div>
+          <div class="terminal-panel" aria-label="Build logs">
+            <div class="terminal-title">
+              <span>Debug Console</span>
+              <strong id="terminalTarget">AboutMe.swift</strong>
+            </div>
+            <ol class="terminal-log" id="terminalLog"></ol>
+            <div class="terminal-contact-card" id="terminalContactCard" hidden>
+              <span class="terminal-command">$ contact –dilber</span>
+              <strong>Ready to build something together?</strong>
+              <div class="terminal-contact-actions">
+                <a href="mailto:dilber-sah@hotmail.com">✓ Email</a>
+                <a href="https://www.linkedin.com/in/dilbersah/" target="_blank" rel="noopener noreferrer">✓ LinkedIn</a>
+                <a href="https://github.com/sahdilber" target="_blank" rel="noopener noreferrer">✓ GitHub</a>
+                <a href="https://www.instagram.com/dilbersah/" target="_blank" rel="noopener noreferrer">✓ Instagram</a>
+                <a href="/Dilber-Sah-CV.pdf" target="_blank" rel="noopener noreferrer">✓ Download CV</a>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <aside class="simulator-panel" id="simulatorPanel" aria-label="Animated iPhone simulator">
+          <div class="simulator-meta">
+            <span>Simulator</span>
+            <strong id="previewTitle">Waiting to Run</strong>
+          </div>
+          <div class="launch-placeholder" id="launchPlaceholder">
+            <span class="placeholder-ring"></span>
+            <strong>DilberSah.app</strong>
+            <small>Press Run to build and launch</small>
+          </div>
+          <div class="iphone" id="iphone" aria-hidden="true">
+            <div class="dynamic-island"></div>
+            <div class="phone-screen">
+              <div class="status-row">
+                <span>9:41</span>
+                <span>5G 100%</span>
+              </div>
+              <section class="home-screen" id="appPreview">
+                <div class="home-hero">
+                  <span>DilberSah</span>
+                  <strong>Portfolio OS</strong>
+                  <p id="phoneContext">Dilber Şah · iOS & Front-End Developer</p>
+                </div>
+                <div class="app-grid" aria-label="Portfolio apps">
+                  <button class="home-icon pluggy-icon" type="button" data-file="pluggy" aria-label="Open Pluggy">
+                    <span class="icon-art">P</span>
+                    <small>Pluggy</small>
+                  </button>
+                  <button class="home-icon moodiary-icon" type="button" data-file="moodiary" aria-label="Open Moodiary">
+                    <span class="icon-art">M</span>
+                    <small>Moodiary</small>
+                  </button>
+                  <button class="home-icon artify-icon" type="button" data-file="artify" aria-label="Open ArtifyAI">
+                    <span class="icon-art">A</span>
+                    <small>ArtifyAI</small>
+                  </button>
+                  <button class="home-icon cv-icon" type="button" data-file="cv" aria-label="Open CV PDF preview">
+                    <span class="icon-art"><span class="pdf-badge">PDF</span></span>
+                    <small>CV.pdf</small>
+                  </button>
+                </div>
+              </section>
+              <section class="app-detail-sheet" id="appDetailSheet" aria-hidden="true">
+                <div class="sheet-handle" aria-hidden="true"></div>
+                <button class="sheet-close" id="sheetClose" type="button" aria-label="Close app details">×</button>
+                <div class="sheet-content">
+                  <header class="sheet-app-header">
+                    <div class="sheet-app-icon" id="sheetIcon">P</div>
+                    <div class="sheet-title-block">
+                      <h2 id="sheetName">Pluggy</h2>
+                      <p id="sheetCategory">EV Charging</p>
+                      <div class="sheet-button-row">
+                        <button class="open-app-button" type="button">OPEN APP</button>
+                        <button class="github-app-button" type="button" hidden>VIEW GITHUB</button>
+                      </div>
+                    </div>
+                  </header>
+                  <div class="sheet-stats" aria-label="App stats">
+                    <div>
+                      <span>Rating</span>
+                      <strong id="sheetRating">4.9</strong>
+                    </div>
+                    <div>
+                      <span>Developer</span>
+                      <strong id="sheetDeveloper">Dilber</strong>
+                    </div>
+                    <div>
+                      <span>Language</span>
+                      <strong id="sheetLanguage">TR + EN</strong>
+                    </div>
+                  </div>
+                  <article class="sheet-section">
+                    <h3>About</h3>
+                    <p id="sheetAbout"></p>
+                  </article>
+                  <article class="sheet-section">
+                    <h3>Features</h3>
+                    <ul id="sheetFeatures"></ul>
+                  </article>
+                  <article class="sheet-section">
+                    <h3>Technologies</h3>
+                    <ul class="tech-list" id="sheetTech"></ul>
+                  </article>
+                </div>
+              </section>
+              <section class="mini-app-screen" id="miniAppScreen" aria-hidden="true"></section>
+            </div>
+          </div>
+        </aside>
+      </section>
+      <footer class="footer-terminal" aria-label="Portfolio identity terminal">
+        <span class="terminal-command">$ whoami</span>
+        <strong>Dilber Şah</strong>
+        <span>iOS &amp; Front-End Developer</span>
+        <span>SwiftUI • Firebase • React • MVVM</span>
+        <em>Available for opportunities.</em>
+      </footer>
+    </main>
+    <script src="script.js?v=12"></script>
+  </body>
+</html>
