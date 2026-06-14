@@ -7,46 +7,74 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=21" />
   </head>
   <body>
     <main class="xcode-shell" aria-label="Dilber Sah interactive portfolio">
       <header class="toolbar">
-        <div class="window-controls" aria-hidden="true">
-          <span class="dot close"></span>
-          <span class="dot minimize"></span>
-          <span class="dot zoom"></span>
-        </div>
-        <button class="run-button" id="runButton" type="button" aria-label="Run portfolio preview">
-          <span class="play-icon"></span>
-          <span>Run</span>
-        </button>
-        <div class="toolbar-title build-status" id="buildStatus" aria-live="polite">
-          <div class="status-copy">
-            <span class="scheme" id="statusText">DilberSah</span>
-            <span class="destination" id="statusDetail">iPhone 17 Pro</span>
+        <div class="toolbar-left">
+          <div class="window-controls" aria-hidden="true">
+            <span class="dot close"></span>
+            <span class="dot minimize"></span>
+            <span class="dot zoom"></span>
           </div>
+          <div class="toolbar-toggle-capsule">
+            <button class="xcode-icon-button navigator-toggle" type="button" aria-label="Toggle navigator"></button>
+            <button class="xcode-icon-button sidebar-toggle" type="button" aria-label="Toggle sidebar"></button>
+          </div>
+          <div class="toolbar-run-controls">
+            <button class="xcode-icon-button stop-button" type="button" aria-label="Stop build"></button>
+            <button class="run-button" id="runButton" type="button" aria-label="Run portfolio preview">
+              <span class="play-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div class="project-title">
+          <span class="branch-icon" aria-hidden="true"></span>
+          <span class="project-copy">
+            <strong>Dilber ŞAH</strong>
+            <span>main</span>
+          </span>
+        </div>
+        <div class="toolbar-title build-status" id="buildStatus" aria-live="polite">
+          <img class="build-app-icon" src="images/appstore.png" alt="" aria-hidden="true" />
+          <span class="build-chevron" aria-hidden="true">&gt;</span>
+          <span class="destination" id="statusDetail">iPhone 17 Pro</span>
+          <div class="status-copy">
+            <span class="scheme" id="statusText">Build Succeeded</span>
+          </div>
+          <span class="build-divider" aria-hidden="true"></span>
+          <span class="build-time" id="buildTime">10.06.2026 at 15:01</span>
           <div class="build-progress" aria-hidden="true">
             <span id="buildProgress"></span>
           </div>
         </div>
         <div class="toolbar-actions">
-          <a class="toolbar-cv-button" href="/Dilber-Sah-CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download Dilber Sah CV">
+          <a class="toolbar-cv-button" href="Dilber-Sah-CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download Dilber Sah CV" data-i18n-aria="downloadCvAria">
             <span class="download-icon" aria-hidden="true"></span>
-            <span>Download CV</span>
+            <span data-i18n="downloadCv">Download CV</span>
           </a>
+          <div class="language-switch" role="group" aria-label="Language selector" data-i18n-aria="languageSelector">
+            <button class="language-option active" type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button class="language-option" type="button" data-lang="tr" aria-pressed="false">TR</button>
+          </div>
+          <button class="xcode-icon-button inspector-toggle" type="button" aria-label="Toggle inspector"></button>
         </div>
       </header>
 
       <section class="workspace">
         <aside class="navigator" aria-label="Project navigator">
-          <div class="navigator-head">
-            <span class="navigator-icon"></span>
-            <span>Project</span>
+          <div class="navigator-head" aria-hidden="true">
+            <span class="navigator-icon selected"></span>
+            <span class="navigator-icon source-control"></span>
+            <span class="navigator-icon bookmark"></span>
+            <span class="navigator-icon issue"></span>
+            <span class="navigator-icon search"></span>
+            <span class="navigator-icon test"></span>
           </div>
           <nav class="tree">
-            <div class="tree-root">DilberSah/</div>
-            <button class="tree-folder" type="button" aria-expanded="true">Profile_Info/</button>
+            <div class="tree-root">DilberSah</div>
+            <button class="tree-folder" type="button" aria-expanded="true">Profile_Info</button>
             <div class="tree-group">
               <button class="file active" type="button" data-file="about">AboutMe.swift</button>
               <button class="file" type="button" data-file="experience">Experience.swift</button>
@@ -54,23 +82,25 @@
               <button class="file" type="button" data-file="projects">Projects.swift</button>
               <button class="file" type="button" data-file="contact">Contact.swift</button>
             </div>
-            <button class="tree-folder" type="button" aria-expanded="true">Featured_Projects/</button>
+            <button class="tree-folder" type="button" aria-expanded="true">Featured_Projects</button>
             <div class="tree-group">
               <button class="file app-file" type="button" data-file="pluggy">Pluggy.app</button>
               <button class="file app-file" type="button" data-file="moodiary">Moodiary.app</button>
               <button class="file app-file" type="button" data-file="artify">ArtifyAI.app</button>
             </div>
+            <div class="tree-folder inert">Assets</div>
+            <button class="file markdown-file" type="button" data-file="cv">CV.pdf</button>
           </nav>
         </aside>
 
-        <details class="editor" aria-label="Code editor" open>
-          <summary class="editor-summary">
-            <span>Code Editor</span>
+        <section class="editor" aria-label="Code editor">
+          <div class="editor-summary">
+            <span data-i18n="codeEditor">Code Editor</span>
             <strong id="mobileActiveFile">AboutMe.swift</strong>
-          </summary>
+          </div>
           <div class="tabs">
             <div class="tab active" id="activeTab">AboutMe.swift</div>
-            <div class="crumbs">DilberSah > Profile_Info</div>
+            <div class="crumbs">DilberSah &gt; Profile_Info &gt; AboutMe.swift &gt; No Selection</div>
           </div>
           <div class="editor-body">
             <ol class="line-numbers" id="lineNumbers" aria-hidden="true"></ol>
@@ -78,63 +108,88 @@
           </div>
           <div class="terminal-panel" aria-label="Build logs">
             <div class="terminal-title">
-              <span>Debug Console</span>
+              <span data-i18n="debugConsole">Debug Console</span>
+              <label class="console-filter">
+                <span data-i18n="filter">Filter</span>
+                <input type="text" aria-label="Filter console output" data-i18n-aria="filterConsoleAria" />
+              </label>
               <strong id="terminalTarget">AboutMe.swift</strong>
             </div>
             <ol class="terminal-log" id="terminalLog"></ol>
             <div class="terminal-contact-card" id="terminalContactCard" hidden>
               <span class="terminal-command">$ contact –dilber</span>
-              <strong>Ready to build something together?</strong>
+              <strong data-i18n="contactPrompt">Let’s build something meaningful.</strong>
               <div class="terminal-contact-actions">
                 <a href="mailto:dilber-sah@hotmail.com">✓ Email</a>
                 <a href="https://www.linkedin.com/in/dilbersah/" target="_blank" rel="noopener noreferrer">✓ LinkedIn</a>
                 <a href="https://github.com/sahdilber" target="_blank" rel="noopener noreferrer">✓ GitHub</a>
                 <a href="https://www.instagram.com/dilbersah/" target="_blank" rel="noopener noreferrer">✓ Instagram</a>
-                <a href="/Dilber-Sah-CV.pdf" target="_blank" rel="noopener noreferrer">✓ Download CV</a>
+                <a href="Dilber-Sah-CV.pdf" target="_blank" rel="noopener noreferrer">✓ <span data-i18n="downloadCv">Download CV</span></a>
               </div>
             </div>
           </div>
-        </details>
+        </section>
 
         <aside class="simulator-panel" id="simulatorPanel" aria-label="Animated iPhone simulator">
           <div class="simulator-meta">
-            <span>Simulator</span>
+            <span data-i18n="simulator">Simulator</span>
             <strong id="previewTitle">Waiting to Run</strong>
           </div>
           <div class="launch-placeholder" id="launchPlaceholder">
+            <div class="launch-status-pill">
+              <span></span>
+              <em>Ready</em>
+            </div>
             <span class="placeholder-ring"></span>
-            <strong>DilberSah.app</strong>
-            <small>Press Run to build and launch</small>
+            <div class="launch-copy">
+              <strong>DilberSah.app</strong>
+              <small data-i18n="pressRun">Press Run to build and launch</small>
+            </div>
+            <div class="launch-progress" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="launch-steps" aria-hidden="true">
+              <span>Resolve packages</span>
+              <span>Sign app</span>
+              <span>Install preview</span>
+            </div>
           </div>
           <div class="iphone" id="iphone" aria-hidden="true">
             <div class="dynamic-island"></div>
             <div class="phone-screen">
               <div class="status-row">
-                <span>9:41</span>
-                <span>5G 100%</span>
+                <span class="status-time">12:02</span>
+                <span class="status-icons" aria-hidden="true">
+                  <span class="cellular-icon"><i></i><i></i><i></i><i></i></span>
+                  <span class="wifi-icon"></span>
+                  <span class="battery-icon"></span>
+                </span>
               </div>
               <section class="home-screen" id="appPreview">
-                <div class="home-hero">
-                  <span>DilberSah</span>
-                  <strong>Portfolio OS</strong>
-                  <p id="phoneContext">Dilber Şah · iOS & Front-End Developer</p>
+                <p class="home-context" id="phoneContext">Dilber Şah · iOS & Front-End Developer</p>
+                <div class="app-grid home-grid" aria-label="Portfolio apps">
+                  <button class="home-icon app-item pluggy-icon" type="button" data-file="pluggy" aria-label="Open Pluggy">
+                    <span class="icon-art app-icon" aria-hidden="true"><img src="images/pluggy.png" alt="" loading="eager" /></span>
+                    <small class="app-label">Pluggy</small>
+                  </button>
+                  <button class="home-icon app-item moodiary-icon" type="button" data-file="moodiary" aria-label="Open Moodiary">
+                    <span class="icon-art app-icon" aria-hidden="true"><img src="images/moodiary.png" alt="" loading="eager" /></span>
+                    <small class="app-label">Moodiary</small>
+                  </button>
+                  <button class="home-icon app-item artify-icon" type="button" data-file="artify" aria-label="Open ArtifyAI">
+                    <span class="icon-art app-icon" aria-hidden="true"><img src="images/artifyAI.png" alt="" loading="eager" /></span>
+                    <small class="app-label">ArtifyAI</small>
+                  </button>
                 </div>
-                <div class="app-grid" aria-label="Portfolio apps">
-                  <button class="home-icon pluggy-icon" type="button" data-file="pluggy" aria-label="Open Pluggy">
-                    <span class="icon-art">P</span>
-                    <small>Pluggy</small>
+                <div class="ios-dock" aria-label="Dock apps">
+                  <button class="dock-icon mail-dock" type="button" data-dock-action="mail" aria-label="Email Dilber Sah">
+                    <span aria-hidden="true"></span>
                   </button>
-                  <button class="home-icon moodiary-icon" type="button" data-file="moodiary" aria-label="Open Moodiary">
-                    <span class="icon-art">M</span>
-                    <small>Moodiary</small>
+                  <button class="dock-icon linkedin-dock" type="button" data-dock-action="linkedin" aria-label="Open LinkedIn">
+                    <img src="images/linkedin.png" alt="" aria-hidden="true" loading="lazy" />
                   </button>
-                  <button class="home-icon artify-icon" type="button" data-file="artify" aria-label="Open ArtifyAI">
-                    <span class="icon-art">A</span>
-                    <small>ArtifyAI</small>
-                  </button>
-                  <button class="home-icon cv-icon" type="button" data-file="cv" aria-label="Open CV PDF preview">
-                    <span class="icon-art"><span class="pdf-badge">PDF</span></span>
-                    <small>CV.pdf</small>
+                  <button class="dock-icon developer-dock" type="button" data-dock-action="github" aria-label="Open GitHub">
+                    <img src="images/github.png" alt="" aria-hidden="true" loading="lazy" />
                   </button>
                 </div>
               </section>
@@ -149,51 +204,60 @@
                       <p id="sheetCategory">EV Charging</p>
                       <div class="sheet-button-row">
                         <button class="open-app-button" type="button">OPEN APP</button>
-                        <button class="github-app-button" type="button" hidden>VIEW GITHUB</button>
+                        <button class="github-app-button" type="button" hidden data-i18n="viewGithub">VIEW GITHUB</button>
                       </div>
                     </div>
                   </header>
                   <div class="sheet-stats" aria-label="App stats">
-                    <div>
-                      <span>Rating</span>
-                      <strong id="sheetRating">4.9</strong>
+                    <div class="sheet-stat sheet-rating-stat">
+                      <span data-i18n="rating">RATING</span>
+                      <strong><span id="sheetRating">4.9</span><i aria-hidden="true">★</i></strong>
+                      <small aria-hidden="true">★★★★★</small>
                     </div>
-                    <div>
-                      <span>Developer</span>
-                      <strong id="sheetDeveloper">Dilber</strong>
+                    <div class="sheet-stat sheet-developer-stat">
+                      <span data-i18n="developer">DEVELOPER</span>
+                      <strong aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <circle cx="12" cy="9" r="3"></circle>
+                          <path d="M7 19c.7-3 2.4-4.5 5-4.5s4.3 1.5 5 4.5"></path>
+                        </svg>
+                      </strong>
+                      <small id="sheetDeveloper">Dilber</small>
                     </div>
-                    <div>
-                      <span>Language</span>
-                      <strong id="sheetLanguage">TR + EN</strong>
+                    <div class="sheet-stat sheet-language-stat">
+                      <span data-i18n="language">LANGUAGE</span>
+                      <strong id="sheetLanguage">TR</strong>
+                      <small id="sheetLanguageSecondary">+EN</small>
                     </div>
                   </div>
                   <article class="sheet-section">
-                    <h3>About</h3>
+                    <h3 data-i18n="about">About</h3>
                     <p id="sheetAbout"></p>
                   </article>
                   <article class="sheet-section">
-                    <h3>Features</h3>
+                    <h3 data-i18n="features">Features</h3>
                     <ul id="sheetFeatures"></ul>
                   </article>
                   <article class="sheet-section">
-                    <h3>Technologies</h3>
+                    <h3 data-i18n="technologies">Technologies</h3>
                     <ul class="tech-list" id="sheetTech"></ul>
                   </article>
                 </div>
               </section>
               <section class="mini-app-screen" id="miniAppScreen" aria-hidden="true"></section>
+              <div class="home-indicator" aria-hidden="true"></div>
             </div>
           </div>
         </aside>
       </section>
       <footer class="footer-terminal" aria-label="Portfolio identity terminal">
         <span class="terminal-command">$ whoami</span>
-        <strong>Dilber Şah</strong>
-        <span>iOS &amp; Front-End Developer</span>
-        <span>SwiftUI • Firebase • React • MVVM</span>
-        <em>Available for opportunities.</em>
+        <strong>Let’s build something meaningful.</strong>
+        <span>Dilber Şah · <span data-i18n="role">iOS &amp; Front-End Developer</span></span>
+        <em data-i18n="available">Open to full-time opportunities, freelance work, and product collaborations.</em>
       </footer>
     </main>
-    <script src="script.js?v=12"></script>
+    <script src="script.js?v=22"></script>
   </body>
 </html>
