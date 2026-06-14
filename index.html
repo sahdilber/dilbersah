@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=21" />
+    <link rel="stylesheet" href="styles.css?v=24" />
   </head>
   <body>
     <main class="xcode-shell" aria-label="Dilber Sah interactive portfolio">
@@ -64,13 +64,18 @@
 
       <section class="workspace">
         <aside class="navigator" aria-label="Project navigator">
-          <div class="navigator-head" aria-hidden="true">
-            <span class="navigator-icon selected"></span>
-            <span class="navigator-icon source-control"></span>
-            <span class="navigator-icon bookmark"></span>
-            <span class="navigator-icon issue"></span>
-            <span class="navigator-icon search"></span>
-            <span class="navigator-icon test"></span>
+          <div class="navigator-head navigator-tabs" aria-hidden="true">
+            <span class="navigator-icon navigator-tab selected folder"></span>
+            <span class="navigator-icon navigator-tab dashed-square"></span>
+            <span class="navigator-icon navigator-tab bookmark"></span>
+            <span class="navigator-separator"></span>
+            <span class="navigator-icon navigator-tab search"></span>
+            <span class="navigator-icon navigator-tab issue"></span>
+            <span class="navigator-icon navigator-tab test-diamond"></span>
+            <span class="navigator-separator"></span>
+            <span class="navigator-icon navigator-tab tag-icon"></span>
+            <span class="navigator-icon navigator-tab rectangle-icon"></span>
+            <span class="navigator-icon navigator-tab list-rectangle"></span>
           </div>
           <nav class="tree">
             <div class="tree-root">DilberSah</div>
@@ -135,28 +140,13 @@
             <span data-i18n="simulator">Simulator</span>
             <strong id="previewTitle">Waiting to Run</strong>
           </div>
-          <div class="launch-placeholder" id="launchPlaceholder">
-            <div class="launch-status-pill">
-              <span></span>
-              <em>Ready</em>
-            </div>
-            <span class="placeholder-ring"></span>
-            <div class="launch-copy">
-              <strong>DilberSah.app</strong>
-              <small data-i18n="pressRun">Press Run to build and launch</small>
-            </div>
-            <div class="launch-progress" aria-hidden="true">
-              <span></span>
-            </div>
-            <div class="launch-steps" aria-hidden="true">
-              <span>Resolve packages</span>
-              <span>Sign app</span>
-              <span>Install preview</span>
-            </div>
-          </div>
-          <div class="iphone" id="iphone" aria-hidden="true">
+          <div class="iphone" id="iphone">
             <div class="dynamic-island"></div>
             <div class="phone-screen">
+              <div class="phone-loading" aria-hidden="true">
+                <strong>DilberSah.app</strong>
+                <span><i></i></span>
+              </div>
               <div class="status-row">
                 <span class="status-time">12:02</span>
                 <span class="status-icons" aria-hidden="true">

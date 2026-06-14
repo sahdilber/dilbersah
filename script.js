@@ -900,9 +900,6 @@ const statusText = document.getElementById("statusText");
 const statusDetail = document.getElementById("statusDetail");
 const buildTime = document.getElementById("buildTime");
 const simulatorPanel = document.getElementById("simulatorPanel");
-const launchPlaceholder = document.getElementById("launchPlaceholder");
-const launchPlaceholderCopy = launchPlaceholder.querySelector("small");
-const launchStatusText = launchPlaceholder.querySelector(".launch-status-pill em");
 const appDetailSheet = document.getElementById("appDetailSheet");
 const sheetClose = document.getElementById("sheetClose");
 const sheetIcon = document.getElementById("sheetIcon");
@@ -1530,10 +1527,7 @@ runButton.addEventListener("click", () => {
   previewTitle.textContent = t("building");
   statusDetail.textContent = "iPhone 17 Pro";
   statusText.textContent = t("buildingDilber");
-  launchStatusText.textContent = "Building";
-  launchPlaceholderCopy.textContent = "Preparing iPhone 17 Pro preview";
-  iphone.setAttribute("aria-hidden", "true");
-  launchPlaceholder.removeAttribute("aria-hidden");
+  iphone.removeAttribute("aria-hidden");
   queueBuildLogs();
 
   buildTimer = window.setTimeout(() => {
@@ -1543,15 +1537,12 @@ runButton.addEventListener("click", () => {
     statusDetail.textContent = "iPhone 17 Pro";
     statusText.textContent = t("buildSucceeded");
     previewTitle.textContent = "iPhone 17 Pro";
-    launchStatusText.textContent = "Ready";
-    launchPlaceholderCopy.textContent = t("pressRun");
   }, 2000);
 
   launchTimer = window.setTimeout(() => {
     simulatorPanel.classList.remove("launching");
     simulatorPanel.classList.add("launched");
     iphone.removeAttribute("aria-hidden");
-    launchPlaceholder.setAttribute("aria-hidden", "true");
     iphone.classList.add("running", "run-pulse");
     window.setTimeout(() => {
       iphone.classList.remove("running", "run-pulse");
