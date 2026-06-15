@@ -349,6 +349,7 @@ button:active {
   width: 34px;
   height: 34px;
   display: grid;
+  place-content: center;
   place-items: center;
   border: 0;
   border-radius: 999px;
@@ -510,14 +511,14 @@ button:active {
   z-index: 1;
   grid-column: 2;
   justify-self: center;
-  width: clamp(340px, calc(100vw - 880px), 720px);
-  max-width: none;
+  width: max-content;
+  max-width: min(760px, calc(100vw - 460px));
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  padding: 0 26px;
+  gap: 10px;
+  padding: 0 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   background: #111;
@@ -538,11 +539,17 @@ button:active {
   object-fit: cover;
 }
 
-.build-chevron {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 17px;
+.build-scheme-name {
+  flex: 0 0 auto;
+  color: #fff;
   font-weight: 500;
-  margin: 0 1px;
+}
+
+.build-chevron {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 -2px;
 }
 
 .status-copy {
@@ -702,7 +709,7 @@ button:active {
   min-height: 0;
   height: 100%;
   display: grid;
-  grid-template-columns: 390px minmax(430px, 1fr) 380px;
+  grid-template-columns: 280px minmax(430px, 1fr) 380px;
   background: #282a30;
 }
 
@@ -1872,7 +1879,11 @@ button:active {
 }
 
 .moodiary-icon .icon-art {
-  box-shadow: none;
+  background: linear-gradient(160deg, #cbb6f7, #8b9bf5);
+}
+
+.moodiary-icon .icon-art img {
+  transform: scale(1.3);
 }
 
 .pluggy-icon .icon-art::before,
@@ -1990,48 +2001,31 @@ button:active {
 }
 
 .mail-dock {
-  background: linear-gradient(145deg, #5bd4ff, #0a84ff 70%);
+  background: linear-gradient(180deg, #36a8ff 0%, #0a74ff 100%);
 }
 
-.mail-dock span {
-  width: calc(var(--dock-icon-size) * 0.64);
-  height: calc(var(--dock-icon-size) * 0.47);
-  border-radius: calc(var(--dock-icon-size) * 0.1);
-  background: white;
-}
-
-.mail-dock span::before,
-.mail-dock span::after {
-  top: 8%;
-  width: 70%;
-  height: 68%;
-  border-bottom: max(2px, calc(var(--dock-icon-size) * 0.045)) solid #0a84ff;
-}
-
-.mail-dock span::before {
-  left: 12%;
-  transform: rotate(34deg);
-}
-
-.mail-dock span::after {
-  right: 12%;
-  transform: rotate(-34deg);
-}
-
-.linkedin-dock,
-.developer-dock {
-  background: rgba(255, 255, 255, 0.08);
+.mail-dock svg {
+  width: 72%;
+  height: 72%;
 }
 
 .linkedin-dock {
-  background: transparent;
-  box-shadow: none;
-  overflow: visible;
+  background: #0a66c2;
 }
 
-.linkedin-dock img {
-  object-fit: contain;
-  border-radius: 0;
+.developer-dock {
+  background: #1b1f23;
+}
+
+.dock-icon svg {
+  width: 64%;
+  height: 64%;
+  display: block;
+}
+
+.developer-dock svg {
+  width: 72%;
+  height: 72%;
 }
 
 .home-indicator {
@@ -2046,6 +2040,169 @@ button:active {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.36);
   transform: translateX(-50%);
   pointer-events: none;
+}
+
+/* ---- Classic iOS home screen ---- */
+.phone-wallpaper {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 14%, rgba(99, 132, 255, 0.6), transparent 46%),
+    radial-gradient(circle at 84% 10%, rgba(244, 114, 182, 0.5), transparent 42%),
+    radial-gradient(circle at 82% 84%, rgba(45, 212, 191, 0.46), transparent 46%),
+    radial-gradient(circle at 22% 90%, rgba(168, 85, 247, 0.55), transparent 48%),
+    linear-gradient(165deg, #211a4d 0%, #0c1024 55%, #05101d 100%);
+}
+
+.home-screen {
+  --app-icon-size: 53px;
+  --app-column-gap: 13px;
+  --dock-icon-size: 54px;
+}
+
+.home-grid {
+  grid-template-columns: repeat(4, var(--app-icon-size));
+  column-gap: var(--app-column-gap);
+  row-gap: 17px;
+  padding: 30px 14px 0;
+}
+
+.home-icon small,
+.app-label {
+  margin-top: 6px;
+  width: calc(var(--app-icon-size) + 24px);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon-art,
+.app-icon {
+  border-radius: 13px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 14px rgba(0, 0, 0, 0.34);
+}
+
+.ios-glyph {
+  display: grid;
+  place-items: center;
+}
+
+.ios-glyph svg {
+  width: 58%;
+  height: 58%;
+  display: block;
+}
+
+.glyph-photos svg {
+  width: 76%;
+  height: 76%;
+}
+
+.glyph-about { background: linear-gradient(160deg, #45c6ff, #0a84ff); }
+.glyph-experience { background: linear-gradient(160deg, #ffc14d, #ff9500); }
+.glyph-skills { background: linear-gradient(160deg, #ff84c4, #e3398f); }
+.glyph-projects { background: linear-gradient(160deg, #8ea2ff, #4f46e5); }
+.glyph-contact { background: linear-gradient(160deg, #5be37d, #28a745); }
+.glyph-cv { background: linear-gradient(160deg, #ff7a7a, #e23b3b); }
+.glyph-settings { background: linear-gradient(160deg, #c7ced8, #767d88); }
+.glyph-photos { background: #ffffff; }
+
+.home-dots {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 150px;
+  margin: 0;
+}
+
+.home-search {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 118px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px 5px 11px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.home-search-glyph {
+  position: relative;
+  width: 11px;
+  height: 11px;
+}
+
+.home-search-glyph::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border: 1.6px solid currentColor;
+  border-radius: 50%;
+}
+
+.home-search-glyph::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  height: 1.6px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+.ios-dock {
+  grid-template-columns: repeat(3, var(--dock-icon-size));
+  gap: 18px;
+  left: 14px;
+  right: 14px;
+  bottom: 38px;
+  height: 80px;
+  padding: 0 14px;
+}
+
+.dock-icon {
+  border-radius: 14px;
+}
+
+.section-preview {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  background:
+    radial-gradient(circle at 82% 12%, rgba(139, 92, 246, 0.2), transparent 7rem),
+    linear-gradient(180deg, #0b0f18, #070a10);
+}
+
+.section-scroll {
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 12px;
+  scrollbar-width: none;
+}
+
+.section-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .app-detail-sheet {
@@ -3332,7 +3489,7 @@ button:active {
   }
 
   .workspace {
-    grid-template-columns: 390px minmax(0, 1fr);
+    grid-template-columns: 280px minmax(0, 1fr);
     grid-template-rows: minmax(560px, calc(100vh - 64px)) 640px;
   }
 
@@ -3377,16 +3534,16 @@ button:active {
     height: calc(100% - 52px);
     padding: 31px 10px 28px;
     gap: 10px;
-    --app-icon-size: 50px;
-    --app-column-gap: 8px;
-    --dock-icon-size: 40px;
+    --app-icon-size: 47px;
+    --app-column-gap: 9px;
+    --dock-icon-size: 44px;
   }
 
   .app-grid {
-    grid-template-columns: repeat(3, var(--app-icon-size));
+    grid-template-columns: repeat(4, var(--app-icon-size));
     column-gap: var(--app-column-gap);
-    row-gap: 0;
-    padding-top: 72px;
+    row-gap: 9px;
+    padding: 16px 8px 0;
   }
 
   .home-icon {
@@ -3397,22 +3554,30 @@ button:active {
   .icon-art {
     width: var(--app-icon-size);
     height: var(--app-icon-size);
-    border-radius: 15px;
+    border-radius: 12px;
   }
 
   .home-icon small {
-    width: calc(var(--app-icon-size) + 14px);
-    font-size: 11px;
+    width: calc(var(--app-icon-size) + 18px);
+    font-size: 9.5px;
+  }
+
+  .home-dots {
+    bottom: 128px;
+  }
+
+  .home-search {
+    bottom: 100px;
   }
 
   .ios-dock {
-    height: 60px;
+    height: 62px;
     padding-inline: 8px;
-    border-radius: 22px;
-    left: 18px;
-    right: 18px;
-    bottom: 31px;
-    gap: 12px;
+    border-radius: 24px;
+    left: 14px;
+    right: 14px;
+    bottom: 26px;
+    gap: 10px;
   }
 
   .gallery-slide img {
@@ -3528,6 +3693,7 @@ button:active {
     border-radius: 6px;
   }
 
+  .build-scheme-name,
   .build-chevron,
   .build-time,
   .destination {
@@ -3668,16 +3834,17 @@ button:active {
   }
 
   .home-screen {
-    padding-inline: 20px;
-    --app-icon-size: 54px;
+    padding-inline: 16px;
+    --app-icon-size: 52px;
     --app-column-gap: 10px;
-    --dock-icon-size: 46px;
+    --dock-icon-size: 50px;
   }
 
   .app-grid {
-    grid-template-columns: repeat(3, var(--app-icon-size));
+    grid-template-columns: repeat(4, var(--app-icon-size));
     column-gap: var(--app-column-gap);
-    padding-top: 92px;
+    row-gap: 16px;
+    padding: 34px 8px 0;
   }
 
   .home-icon {
@@ -3688,22 +3855,30 @@ button:active {
   .icon-art {
     width: var(--app-icon-size);
     height: var(--app-icon-size);
-    border-radius: 18px;
+    border-radius: 13px;
   }
 
   .home-icon small {
-    width: calc(var(--app-icon-size) + 18px);
-    font-size: 12px;
+    width: calc(var(--app-icon-size) + 20px);
+    font-size: 10px;
+  }
+
+  .home-dots {
+    bottom: 150px;
+  }
+
+  .home-search {
+    bottom: 118px;
   }
 
   .ios-dock {
-    height: 76px;
-    padding-inline: 11px;
-    border-radius: 27px;
-    left: 20px;
-    right: 20px;
-    bottom: 36px;
-    gap: 14px;
+    height: 78px;
+    padding-inline: 10px;
+    border-radius: 28px;
+    left: 16px;
+    right: 16px;
+    bottom: 34px;
+    gap: 11px;
   }
 
   .gallery-slide img {
@@ -3738,7 +3913,21 @@ button:active {
   }
 
   .workspace {
-    grid-template-columns: 390px minmax(430px, 1fr) 380px;
+    grid-template-columns: 280px minmax(430px, 1fr) 380px;
+  }
+}
+
+/* Narrow desktop: drop the build timestamp before it can crowd the title */
+@media (max-width: 1499px) and (min-width: 1181px) {
+  .build-time {
+    display: none;
+  }
+}
+
+/* Tighter desktop: hide the project/branch title so the centered status pill never collides */
+@media (max-width: 1339px) and (min-width: 1181px) {
+  .project-title {
+    display: none;
   }
 }
 
@@ -3767,6 +3956,7 @@ button:active {
     overflow: hidden;
   }
 
+  .build-scheme-name,
   .build-chevron,
   .destination,
   .build-divider,
@@ -3775,7 +3965,7 @@ button:active {
   }
 
   .workspace {
-    grid-template-columns: 390px minmax(0, 1fr);
+    grid-template-columns: 280px minmax(0, 1fr);
     grid-template-rows: minmax(520px, calc(100vh - 80px)) 640px;
   }
 

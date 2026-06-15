@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=24" />
+    <link rel="stylesheet" href="styles.css?v=31" />
   </head>
   <body>
     <main class="xcode-shell" aria-label="Dilber Sah interactive portfolio">
@@ -38,12 +38,13 @@
         </div>
         <div class="toolbar-title build-status" id="buildStatus" aria-live="polite">
           <img class="build-app-icon" src="images/appstore.png" alt="" aria-hidden="true" />
-          <span class="build-chevron" aria-hidden="true">&gt;</span>
+          <span class="build-scheme-name">DilberSah</span>
+          <span class="build-chevron" aria-hidden="true">›</span>
           <span class="destination" id="statusDetail">iPhone 17 Pro</span>
+          <span class="build-divider" aria-hidden="true"></span>
           <div class="status-copy">
             <span class="scheme" id="statusText">Build Succeeded</span>
           </div>
-          <span class="build-divider" aria-hidden="true"></span>
           <span class="build-time" id="buildTime">10.06.2026 at 15:01</span>
           <div class="build-progress" aria-hidden="true">
             <span id="buildProgress"></span>
@@ -67,15 +68,9 @@
           <div class="navigator-head navigator-tabs" aria-hidden="true">
             <span class="navigator-icon navigator-tab selected folder"></span>
             <span class="navigator-icon navigator-tab dashed-square"></span>
-            <span class="navigator-icon navigator-tab bookmark"></span>
-            <span class="navigator-separator"></span>
             <span class="navigator-icon navigator-tab search"></span>
             <span class="navigator-icon navigator-tab issue"></span>
             <span class="navigator-icon navigator-tab test-diamond"></span>
-            <span class="navigator-separator"></span>
-            <span class="navigator-icon navigator-tab tag-icon"></span>
-            <span class="navigator-icon navigator-tab rectangle-icon"></span>
-            <span class="navigator-icon navigator-tab list-rectangle"></span>
           </div>
           <nav class="tree">
             <div class="tree-root">DilberSah</div>
@@ -143,6 +138,7 @@
           <div class="iphone" id="iphone">
             <div class="dynamic-island"></div>
             <div class="phone-screen">
+              <div class="phone-wallpaper" aria-hidden="true"></div>
               <div class="phone-loading" aria-hidden="true">
                 <strong>DilberSah.app</strong>
                 <span><i></i></span>
@@ -170,16 +166,25 @@
                     <span class="icon-art app-icon" aria-hidden="true"><img src="images/artifyAI.png" alt="" loading="eager" /></span>
                     <small class="app-label">ArtifyAI</small>
                   </button>
+                  <button class="home-icon app-item" type="button" data-home-action="app-store" aria-label="Pluggy on the App Store">
+                    <span class="icon-art app-icon" aria-hidden="true"><img src="images/appstore.png" alt="" loading="lazy" /></span>
+                    <small class="app-label">App Store</small>
+                  </button>
                 </div>
+
+                <div class="page-dots home-dots" aria-hidden="true">
+                  <span class="active"></span>
+                </div>
+
                 <div class="ios-dock" aria-label="Dock apps">
                   <button class="dock-icon mail-dock" type="button" data-dock-action="mail" aria-label="Email Dilber Sah">
-                    <span aria-hidden="true"></span>
+                    <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="8" y="25" width="84" height="50" rx="11" fill="#fff"/><path d="M12.5 30 50 55.5 87.5 30" fill="none" stroke="#1a82ff" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </button>
                   <button class="dock-icon linkedin-dock" type="button" data-dock-action="linkedin" aria-label="Open LinkedIn">
-                    <img src="images/linkedin.png" alt="" aria-hidden="true" loading="lazy" />
+                    <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M6.94 8.58H3.56V20.5h3.38V8.58zM5.25 3.5a1.96 1.96 0 1 0 0 3.93 1.96 1.96 0 0 0 0-3.93zM20.5 14.18c0-3.1-.66-5.48-4.28-5.48-1.74 0-2.9.95-3.38 1.86h-.05V8.58H9.56V20.5h3.38v-5.9c0-1.55.3-3.06 2.22-3.06 1.9 0 1.93 1.78 1.93 3.16v5.8h3.41v-6.32z"/></svg>
                   </button>
                   <button class="dock-icon developer-dock" type="button" data-dock-action="github" aria-label="Open GitHub">
-                    <img src="images/github.png" alt="" aria-hidden="true" loading="lazy" />
+                    <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.74c0 .27.16.58.67.48A10.02 10.02 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
                   </button>
                 </div>
               </section>
@@ -248,6 +253,6 @@
         <em data-i18n="available">Open to full-time opportunities, freelance work, and product collaborations.</em>
       </footer>
     </main>
-    <script src="script.js?v=22"></script>
+    <script src="script.js?v=24"></script>
   </body>
 </html>

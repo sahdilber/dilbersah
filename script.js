@@ -768,10 +768,18 @@ const uiText = {
     language: "LANGUAGE",
     languageSelector: "Language selector",
     loadingScreenshots: "Loading screenshots...",
+    navAbout: "About",
+    navExperience: "Experience",
+    navSkills: "Skills",
+    navProjects: "Projects",
+    navContact: "Contact",
+    navPhotos: "Photos",
     openAppFallback: "OPEN APP",
     pressRun: "Press Run to build and launch",
     rating: "RATING",
     role: "iOS & Front-End Developer",
+    search: "Search",
+    settings: "Settings",
     simulator: "Simulator",
     technologies: "Technologies",
     viewGithub: "VIEW GITHUB",
@@ -815,10 +823,18 @@ const uiText = {
     language: "DİL",
     languageSelector: "Dil seçici",
     loadingScreenshots: "Ekran görüntüleri yükleniyor...",
+    navAbout: "Hakkımda",
+    navExperience: "Deneyim",
+    navSkills: "Yetenekler",
+    navProjects: "Projeler",
+    navContact: "İletişim",
+    navPhotos: "Fotoğraflar",
     openAppFallback: "UYGULAMAYI AÇ",
     pressRun: "Derleyip başlatmak için Run'a bas",
     rating: "PUAN",
     role: "iOS & Front-End Developer",
+    search: "Ara",
+    settings: "Ayarlar",
     simulator: "Simülatör",
     technologies: "Teknolojiler",
     viewGithub: "GITHUB'DA GÖR",
@@ -1188,6 +1204,16 @@ function galleryLoadingTemplate(key) {
 }
 
 function miniAppTemplate(key, galleryImages = []) {
+  if (["about", "experience", "skills", "projects"].includes(key)) {
+    const file = getFiles()[key];
+    const eyebrow = currentLanguage === "tr" ? "Profil" : "Profile";
+    return `
+      <div class="section-preview">
+        ${miniTopbar(file.previewTitle, eyebrow)}
+        <div class="section-scroll">${file.preview}</div>
+      </div>`;
+  }
+
   if (key === "contact") {
     return `
       <div class="contact-preview-screen">
@@ -1431,29 +1457,40 @@ buttons.forEach((button) => {
   });
 });
 
+function toggleLanguage() {
+  const next = currentLanguage === "tr" ? "en" : "tr";
+  const button = languageButtons.find((item) => item.dataset.lang === next);
+  button?.click();
+}
+
 homeIcons.forEach((button) => {
   button.addEventListener("click", () => {
+    const action = button.dataset.homeAction;
+    if (action === "app-store") {
+      window.open(PLUGGY_APP_STORE_URL, "_blank", "noopener,noreferrer");
+      return;
+    }
+    if (action === "settings") {
+      toggleLanguage();
+      return;
+    }
+    if (action === "photos") {
+      renderFile("artify");
+      previewTitle.textContent = getFiles().artify?.previewTitle || "ArtifyAI";
+      openMiniApp("artify");
+      return;
+    }
+
     const key = button.dataset.file;
-    if (key === "cv") {
-      updateSimulatorContext(key);
-      previewTitle.textContent = "CV.pdf";
-      window.open(CV_DOWNLOAD_URL, "_blank", "noopener,noreferrer");
-      return;
-    }
-    if (key === "pluggy") {
-      renderFile(key);
-      previewTitle.textContent = getFiles()[key]?.previewTitle || key;
-      openAppDetail(key);
-      return;
-    }
-    if (key === "moodiary" || key === "artify") {
-      renderFile(key);
-      previewTitle.textContent = getFiles()[key]?.previewTitle || key;
-      openAppDetail(key);
-      return;
-    }
+    if (!key) return;
     renderFile(key);
-    openAppDetail(key);
+    previewTitle.textContent = getFiles()[key]?.previewTitle || key;
+
+    if (getAppDetails()[key]) {
+      openAppDetail(key);
+    } else {
+      openMiniApp(key);
+    }
   });
 });
 
